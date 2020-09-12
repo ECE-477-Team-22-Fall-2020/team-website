@@ -51,23 +51,45 @@ contact course staff.
 			and include things such as a file lister (for listing out homework assignments or tutorials)
 		-->
 		<div id="content">
-            <h2>Progress Report for -insert student name here-</h2>
+            <h2>Progress Report for Dan Burger</h2>
             
             <h4>Week 1:</h4>
-            <b>Date:</b> -Enter today's date here-<br>
-            <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
+            <b>Date:</b> August 28, 2020<br>
+            <b>Total hours:</b> 4<br>
             <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
-
+						Our team met to revise our initial project proposal given the current situation due to COVID-19. This includes
+						but is not limited to having extremely limited access to the lab, remote learning, as well as having one of our
+						team members working with us from a different state. We scaled back the project so that it would not be as mechanically
+						complicated to build. We decided on a set of PSSCs to define the goals of our project.
             <br>
 
             <h4>Week 2:</h4>
-            <b>Date:</b> -Enter today's date here-<br>
-            <b>Total hours:</b> -Enter the number of hours you worked this week here-<br>
+            <b>Date:</b> September 4, 2020<br>
+            <b>Total hours:</b> 3<br>
             <b>Description of design efforts:</b><br>
-            -Discuss your design efforts here. Remember to follow the guidelines presented in the Progress Report Policy, available <a href="https://engineering.purdue.edu/ece477/Course/Policies/">here</a>. This is a template entry; simply copy/paste this entry when doing progress reports each week.</br>
-                      
-        </div>
+						This week, I met with our group to talk about some issues we had with our project, review our graded documents, and begin
+						investigating parts we may need for Socially Distanced Chess. We decided on Hall effect sensors to be used in piece format-detection
+						with software keeping track of initial positions and where pieces moved to determine current positions. We started moving away from Bluetooth
+						as we were advised by a course staff that this may be difficult.											
+						<br>
+
+            <h4>Week 3:</h4>
+            <b>Date:</b> September 11, 2020<br>
+            <b>Total hours:</b> 5<br>
+						<b>Description of design efforts:</b><br>
+						After having a helpful conversation with course staff during our assigned lab time, our team had a much better idea on what direction we wanted to take our Social Distancing Chess project. I aided in exploring different microcontroller options by researching various STM32 F series microcontrollers with a team member and this led discussions on which version would fit our project the best. We chose the STM 32 F-4.
+						<br>
+						<br>
+						Since we changed our PSSCs to fulfill the 3 hardware requirements by including Bluetooth, I researched what Bluetooth modules are available to use with an STM 32 F-4 and which ones would have the features needed to connect our boards with any player’s smartphone. After sifting through obscure and outdated Bluetooth components, I found that the HC-05 and HC-06 modules were by far the most popular. I prioritized popularity over raw speed or capability simply because we have been warned how troublesome Bluetooth can be to work with so we want as many online resources as we can get. The HC-05 and HC-06 are fairly identical besides the fact that HC-06 has fewer pins and the HC-05 can act as both a slave and master. We chose the HC-05 due to its ability to be both slave and master in case we want iterations of our project that don’t require a cell phone while the boards are in close proximity to each other.
+						<br>
+						<img src="Team/progress/img/bluetooth1.PNG" width="400" height="auto"></img>
+						<br>
+						<img src="Team/progress/img/bluetooth2.PNG" width="400" height="auto"></img>
+						<br>
+						<img src="Team/progress/img/hc-05.PNG" width="400" height="auto"></img>
+						<br>
+						HC-05 Bluetooth Module from components101.com
+	        </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
 		<div id="footer"></div>
