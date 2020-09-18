@@ -99,6 +99,42 @@ contact course staff.
 
 			Helped arrive at the decision to use the STM32F4 microcontroller family, and picked up one to be used for the initial hardware demo coming up.
 
+			<br>
+			
+            <h4>Week 4:</h4>
+            <b>Date:</b> 18 September 2020<br>
+            <b>Total hours:</b> 5<br>
+			<b>Description of design efforts:</b><br>
+			Assisted teammate Matthew MacLean in setting up this week's progress report demo by finding documents such as the family reference manual, helping to configure his "System Workbench for STM32" environment after some initial struggles (mine was already set up from last year, but he had switched his OS), and providing saved documents from ECE362 on fixing problems with the firmware.
+			A link to the video is included below:
+
+			<br>
+
+			<video width="320" controls>
+				<source src="Media/img/SMAT_1.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<br><br>
+
+			Personally ordered around $180 worth of project materials. These orders were set to be delivered Friday, but this was delayed until Monday. Anticipating a delay, similar parts were looked for in the ECE parts shop. Unfortunately, the staff there were relatively unhelpful during two separate visits from Matt and I.
+			The staff didn't know what Hall Effect sensors were, and were unable to find any chips in the shop which could detect a magnetic field. The staff on the second visit knew what a multiplexer was, but only knew where to find the digital ones. Part numbers were provided to them, but their catalog system seems to be in a transitionary state right now, so their searches were unsuccessful.
+			One takeaway from this process was that the parts shop should really only be used for even more basic parts, like resistors and capacitors, as well as possibly some of the converters used in the voltage regulation subsystem.
+
+			<br><br>
+
+			The team had planned to meet on Thursday or Friday to conduct experiments using magnets, hall effect sensors, and an analog multiplexer. The goal of the testing was to see if the resistance induced by the analog multiplexer would be an issue when getting the hall effect sensor outputs. This experiment is delayed until next week, due to the delays mentioned above.
+			The team has an idea of how to test these chips. The multiplexer will be bound to choose one of its lines, with the hall effect sensor on that line. A weak permanent magnet will be put in front of the hall effect sensor, and the microcontroller will attempt to read the output of the multiplexer.
+			This will also be tested with two cascading multiplexers, as this might be necessary for the project. The output of the line could also be read with a voltmeter; the pins of the microcontroller in input mode are high impedence, so there wouldn't be too much of a difference.
+			A lot of characterization could be done to determine an ideal magnet strength, but this initial testing is just to determine the viability of the selected multiplexer setup.
+
+			<br><br>
+
+			Since not much could be accomplished with hardware beyond what was shown in the above video, most of the remaining time spent was dedicated to filling out the Bill of Materials and compiling a set of references to use once the hardware arrives.
+			I filled out the Microcontroller and OLED screen parts of the bill of materials, among a few other miscellaneous entries.
+			I also went through and found datasheets and reference guides for the majority of our active components, putting them in the references portion of the website. This will help speed up the development process once the hardware does arrive, and having them all in one place will help when combining subsystems.
+			
+			<br>
 
         </div>
 	
