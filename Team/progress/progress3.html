@@ -103,6 +103,38 @@ contact course staff.
 						<img src="Team/progress/img/kicad.PNG" width="500" height="auto"></img>
 						<br>
 
+						<h4>Week 5:</h4>
+            <b>Date:</b> September 24, 2020<br>
+            <b>Total hours:</b> 8<br>
+						<b>Description of design efforts:</b><br>
+						This week began with me exploring some tutorials on KiCAD, and this research included attending Todd Wild’s Tuesday night Webex tutorial. This was all very helpful in understanding PCB CAD software and how we will have to design our board like the differences between a part symbol and part footprint. I was in charge of Assignment 7 which covered everything about the packaging of our project. I did plenty of research into similar commercial projects and examined how they were packaged. We chose to be inspired by certain elements of the Square Off smart chess board called the Grand Kingdom Set and an electronic board called the Gameboard-1. The Grand Kingdom Set is a fully autonomous smart chess board that connects to a smartphone with Bluetooth and has piece movement detection using pressure sensors. The Gameboard-1 is a large, flat touchscreen display that can detect both active and passive game pieces to play a variety of games by connecting to WIFI. We are borrowing the Bluetooth feature from the Square Off board and the small and sleek form factor of Gameboard-1. After this research, I used SketchUp to design a 3D model of our chess board to scale. I also sketched out the PCB layout with all of our components and where they will belong. Both of these can be seen in the images below.
+						<br>
+						<br>
+						<img src="Team/progress/img/cad-sdc.PNG" width="500" height="auto"></img>
+						<br>
+						<img src="Team/progress/img/pcb-sdc.PNG" width="500" height="auto"></img>
+						<br>
+
+						<h4>Week 6:</h4>
+            <b>Date:</b> October 1, 2020<br>
+            <b>Total hours:</b> 7<br>
+						<b>Description of design efforts:</b><br>
+						This week I spent most of my time using KiCad to build a first draft schematic of the Social Distancing Chess board. I used the key tips I learned from Todd Wild’s tutorial to correctly place down components and connect them with wires or labels to create a clean but full schematic of all the parts and their connections. Most of the devices we are using in this project were already in the components library in KiCad (like the STM32 F4 Microcontroller, the 8:1 multiplexer, and the Hall Effect sensors). I then had to search online for the HC-05 Bluetooth module schematic and the 128 by 64 pixel OLED display schematic. I found the HC-05 schematic but could not find the OLED schematic, so Ian took some time building one from scratch. After getting valuable feedback from course staff at our lab meeting, we added a reset circuit for our microcontroller, connected the VSSA and VBAT pins on the microcontroller, attached the programming headers, added decoupling capacitors on all the ICs, and renamed the hall effect sensor matrix to match chess notation. The final result is seen in the image below.
+						<br>
+						<br>
+						<img src="Team/progress/img/pcb-schematic-draft.jpg" width="500" height="auto"></img>
+						<br>
+
+						<h4>Week 6:</h4>
+            <b>Date:</b> October 9, 2020<br>
+            <b>Total hours:</b> 6<br>
+						<b>Description of design efforts:</b><br>
+						With midterm reviews fast approaching, I have been hard at work getting our PCB design drafted and am working on finishing touches going into this following weekend. After we had our schematic approved, my team and I began assigning footprints to each of the symbols. Most of the symbols has footprints already like the STM32 F4, capacitors, resistors, switches, hall effect sensors, and multiplexers. We had to dig around the internet to find appropriate footprints for the bluetooth module and the OLED screen and driver. Once the footprints were assigned, I created the netlist and got started rearranging the parts on the pcb board. The placement of all 64 hall effect sensors and their corresponding decoupling capacitors was meticulous as they have to line up in the formation of a chess board, but the rest of the parts could be positioned in arbitrary locations at the bottom of the board (from a top-down view). After getting helpful feedback from course instructors, we have replaced the footprints of certain components and are finalizing our board with the border, screw holes, and other small details.
+						<br>
+						<br>
+						<img src="Team/progress/img/pcb-ratsnest.PNG" width="500" height="auto"></img>
+						<br>
+
 						<br>
 	        </div>
 	

@@ -90,7 +90,30 @@ contact course staff.
 			<!--Team member photos are loaded into team.html. Use root-relative links (no leading slash) for team member photos-->
 			<p><img src="Team/progress/img/system_block.jpg" width="395" height="195"></img></p>
 			
+			<h4>Week 5:</h4>
+            <b>Date:</b> 9/25/2020<br>
+            <b>Total hours:</b> 6<br>
+            <b>Description of design efforts:</b><br>
+			Assembled and programmed a system for determining the polarity and presence of a magnet using a Hall Effect Sensor placed above it. The sensor's analog output is read by the ADC of the STM32, and the 12-bit output
+			is compared to previously determined integers to see whether it is noise, positive magnet polarity, or negative magnet polarity. Based on some rudimentary testing with the single Hall Effect sensor and a magnet, when the ADC
+			reads below 200 it is negative polarity, and when it reads above 2000 it is a positive polarity. Those ranges will be reevaluated once more Hall Effect sensors to account for individual differences in sensors. After verifying
+			that one Hall Effect sensor could accurately determine the team of a piece, a schematic was created for a 3x3 network of Hall Effect sensors, to be implemeted and tested soon. Below can be found both the code used to initialize
+			and run the ADC during the single sensor tests, as well as the schematic for the 3x3 network.
+			<p><img src="Team/progress/img/Single_Hall_code.PNG" width="400" height="450"></img></p>
+			<p><img src="Team/progress/img/3x3_schematic.png" width="876" height="620"></img></p>
 			
+			<h4>Week 6:</h4>
+            <b>Date:</b> 10/02/2020<br>
+            <b>Total hours:</b> 5<br>
+            <b>Description of design efforts:</b><br>
+			Constructed the test circuit for the 3x3 network of Hall Effect sensors detailed in the schematic from Week 5. Some introductory code was written to scan through the 9 sensors, and determine the polarity/presence of the
+			magnet at that location, which was based heavily off of the function written for last week's code. The 2000 and 200 value limits were reused as the conditions for the sensors have not yet changed, but they may change
+			once the system is mounted under a chess board. The demonstration of this system working was used as the Show Me A Thing for this week as well. Code was also begun for determining the changes in board state from one move
+			to the next. A Piece structure was created in C with two character attributes inside. One will be used to determine the type of piece it is, with the other determining the the team of the piece. A 2d array of these structures
+			will be created and subsequently prepared with the incoming values of the Hall Effect Sensors to determine when and where a piece has moved, and the array will be updated accordingly. Below, find the beginnings of the code
+			that will be used for this comaprison, as well as a picture of the physical circuit used for the 3x3 testing.
+			<p><img src="Team/progress/img/Beginning_board_code.JPG" width="400" height="500"></img></p>
+			<p><img src="Team/progress/img/3x3_actual.jpg" width="600" height="700"></img></p>
         </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->

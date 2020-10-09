@@ -136,6 +136,122 @@ contact course staff.
 			
 			<br>
 
+			<h4>Week 5:</h4>
+            <b>Date:</b> 25 September 2020<br>
+            <b>Total hours:</b> 5<br>
+			<b>Description of design efforts:</b><br>
+			After receiving the OLED screen, effort was taken to get it up and running. The ultimate goal is to have something appear on the screen for SMAT next week. Below is a photo of the wiring for conventional SPI communication using the STM32F4's SPI1 pin package 1 configuration.
+
+			<br>
+
+			<p><img src="Team/progress/img/oled_initial_wiring.jpg" width="400" height="auto"></img></p>
+
+			<br><br>
+
+			As seen in the picture, a logic level shifter had to be used to convert from the 3V power of the display to the 5V commands and data sent from the board. The shifter chip was obtained with the Adafruit pack, but wiring had to be adapted for the F4 pins.
+
+			<br><br>
+
+			The pictured wiring is not enough to run the OLED. After investigating the driver chip, it implements two additional pins: DC, and RST. The DC pin is used to differentiate between data and commands. The use of the RST pin can be inferred, although past SPI devices seemed to use the NSS pin to achieve the same purpose.
+
+			<br><br>
+
+			Adafruit provides software for interfacing with the SSD1325 driver chip with an Arduino. Fortunately, the file is only about 300 lines long and makes use of many repeated functions which can be reimplemented on the STM32F4 family. Their overall grahpics driver module may be more tiresome to implement, so the current plan is to go with the uGUI module, which has STM32F4-friendly code included. For SMAT, just the chip driver should be sufficient; blinking regions of the screen will be done before showing graphics on it.
+			The task of rewriting the oled driver file will be the primary focus of next week.
+
+			<br><br>
+
+			One task for this weekend is meeting with the physically local members of the team to send a package to our remote fourth member. He is working on the phone app currently, but testing the bluetooth connection will be important for this team member, so the extra parts I ordered last week are being diverted to this cause.
+			This probably warrants the ordering of more backup parts now, but I am reluctant to do so myself after spending the most this week, so this will be brought up with the team when putting the package together.
+
+			<br><br>
+
+			My toolset for working with hardware from home is limited, but seems to be the most extensive of those physically present at Purdue. My multimeter is currently lent out to help with figuring out Hall effect sensors, and my soldering station could prove useful when working with sourced parts. The OLED screen comes in some configurations which require resoldering two resistors to set up for SPI communication. 
+			Future orders of the screen without Adafruit's expensive full package may require the soldering station, even though we are not building a PCB. I wanted to document that fact about the oled screen here, in case it becomes important later in the semester.
+
+			<br>
+
+			<h4>Week 6:</h4>
+            <b>Date:</b> 2 October 2020<br>
+            <b>Total hours:</b> 6<br>
+			<b>Description of design efforts:</b><br>
+
+			The first undertaking of the week was to draw the schematic for the OLED screen subsystem. This was fairly easy, because the physical wiring was already done.
+			However, two custom parts files had to be made, since the oled driver was pretty nonstandard. An exact match for the logic-level shifter was not found, so a library component was designed for that as well, with easy-to-read naming conventions specific to this project.
+
+			<br><br>
+
+			After combining the screen schematic with the other schematic work done by Dan, all of the "official" work was done for the week. The remainder of the time was spent writing and debugging the SPI interface with the OLED display.
+
+			<br><br>
+
+			<p><img src="Team/progress/img/progress_report_4.jpg" width="400" height="auto"></img></p>
+
+			<br><br>
+
+			As can be seen in the above photo, a workable demo of the display has not yet happened. However, significant progress in writing and fixing the software libraries has been made, and certain properties of the functionality have been verified through debugging.
+			
+			<br><br>
+
+			The libraries I started with included a driver for interacting with a driver chip with an Arduino, and an SPI library for the STM32F4. Each one had to be rewritten, because we are using "Hardware Abstraction Layer" files instead of STDPeriph, and are not using an Arduino.
+			Rewriting the SPI library typically consisted of just renaming defined constants to use different spelling or capitalization. That said, there were some missing functions which had to be rewritten, so not all 
+			of the replacement was easy or fast. The specific interaction with the driver chip was written for Arduino, but mostly consisted of SPI commands and data sent which works with our chip without any special changes. Really just a handful of functions had 
+			to be rewritten for this one.
+
+			<br><br>
+
+			As expected, there were several bugs in the files that I rewrote. The easy ones were found, and the configuration of the registers looks right. Unfortunately, one of the roommates of two in-person team members, including myself, tested positive
+			for coronavirus this week, so it will not be possible to schedule an in-person lab session to debug the SPI signals. The tool I have now, a multimeter, is about as good as I will get for a while. I have verified that all of the static signals (like chip select, reset, and command/data) work as expected, but the
+			clock and data signals will be very difficult to verify. The current approach uses hardware SPI, so a temporary way around this would be to use software SPI until more knowledge of how the chip works is known. I am really hoping to have a working demo
+			for next week's show me a thing, so the software SPI approach should be taken this weekend to speed up debugging.
+
+			<h4>Week 7:</h4>
+            <b>Date:</b> 9 October 2020<br>
+            <b>Total hours:</b> 10<br>
+			<b>Description of design efforts:</b><br>
+
+			The first class activities of the week were a continuation of the work from last week. I spent the weekend getting the OLED screen to work. This was done using software SPI, which was a valuable tool in debugging why the screen wasn't working. I was
+			able to verify that the signals were appearing as expected, but noticed that, while the signals from the breadboard were coming through, the signals on the OLED PCB itself were either weak or not present. This was because I had failed to solder the
+			throughhole pins onto the board. Fortunately, I had a soldering station on hand in my place of residence, so I got it set up in the kitchen for a quick soldering session.
+
+			<br><br>
+
+			<p><img src="Team/progress/img/oled_solder.jpg" width="400" height="auto"></img></p>
+
+			<br><br>
+
+			Without any changes to the software, the board now displayed correctly and flipped all of the pixels every few seconds (via a special SPI command for the chip), as I had intended for the demonstration. Included below is the SMAT video displaying this functionality.
+
+			<br><br>
+
+			<video width="320" controls>
+				<source src="Media/img/SMAT_10_7.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+
+			<br><br>
+
+			The progress on the screen was reassuring, but the week quickly became very busy and no more progress was made on this front. The screen will be reapproached after the Midterm Design Review.
+
+			<br><br>
+
+			The next major work was done on Tuesday, trying to figure out PCB design. I am not the primary PCB designer, but wanted to be on the call helping out Dan with figuring things out. I was able to get the parts of my subsystem working by finding correct
+			library files for the footprints. The OLED screen footprint was more difficult since it had to be made by hand. The spacings of its pins are now correct on the schematic, but there still may be mechanical issues with making sure that the screen
+			physically fits correctly on the board. More time will be spent ironing this out on the weekend.
+
+			<br><br>
+
+			For Thursday and Friday, most of my time was spent working on the Software Formalization Document. Our project is very software heavy, so it was difficult to go into the right amount of detail for each part of the project, especially when each module
+			is being worked on by a different person. The sheer size of the Software Component Diagram was such that it had to be placed on the page horizontally. I did my best at describing the parts of the project that I knew about, and asked the team to look over
+			the parts which they are responsible for. Emphasis was also placed on the parts of the project which are relevant to the PSSCs, which are the three on-chip modules: Graphics, Piece Detection and Bluetooth Interfaace. The components such as the Smartphone App and AWS Server
+			are less relevant to course standards and less complicated overall, so they were given less detail.
+
+
+
+
+			
+
+
         </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->

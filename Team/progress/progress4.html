@@ -76,8 +76,40 @@ contact course staff.
             Met with course staff to discuss PSSCs and components to be used in project. Got permission to use STMF4 from the parts lab to replace our STMF0, which gives us significantly more memory to work worth. Developed alone the software overview for the team, incorporating new discussions from our meetings with each other and the TAs. Developed a plan to incorporate the HC-05 Bluetooth module and have compiled references on how to get the module to work with the STMF4 microcontroller. Through writing the software overview document, our plans for our algorithms and data structures have been refined. A workflow developed by me for the software overview is shown below.</br>
 			
 			<br></br><p><img src="Team/progress/img/software-overview-week3.png" width="400"></img></p>
+            
+			<br>
 
-                      
+            <h4>Week 4:</h4>
+            <b>Date:</b> 9/18/2020<br>
+            <b>Total hours:</b> 5<br>
+            <b>Description of design efforts:</b><br>
+            A large portion of the work this week was discussing with the team regarding which parts to order. Parts were not available for use from the ECE parts room, so we have ordered modules online. As of yet, we have placed orders for Hall effect sensors, an STM32F4 Discovery kit, and an HC-05 Bluetooth module. All parts have been approved by the course staff. Additionally, we worked out the electrical requirements and specifications for the various components in the "Bill of Materials" assignment. Working on this assignment helped us to refine our parts list and brought up some ideas for implementation that we hadn't previously considered, such as what chess board we were going to use. We currently plan to purchase a prebuilt chess set; however, we are looking into 3D printing capabilities as well. An image of our bill of materials is shown below.</br>
+			
+			<br></br><p><img src="Team/progress/img/bill-of-materials.jpg" width="800"></img></p>
+
+            <br>
+
+            <h4>Week 5:</h4>
+            <b>Date:</b> 9/26/2020<br>
+            <b>Total hours:</b> 6<br>
+            <b>Description of design efforts:</b><br>
+            As we have collected most of the parts for our project, we are now testing individual elements of our design. Due to my being physically away from the rest of the team, I am responsible for handling most of the software design. To work on this, I've begun developing the Android application we will use to communicate with our board's microcontroller and the web server.
+			
+			<br></br>For this, the first phase of development is to create Bluetooth functionality to pair our mobile device with the board. A basic outline of this process is detailed in the figure below. I am using Android Studio for application development. Essentially, our application will use the Android Bluetooth API to search for all nearby Bluetooth devices. The HC-05 Bluetooth module we are using will at this point display its name and MAC address. By default, the module's password is 1234. We will not change this and instead will have the application automatically input this password. Once paired, the module can be instructed with data from the application. A short program showing how the Android device will communicate with the module is shown below on the left.</br>
+			
+			<br></br><p><img src="Team/progress/img/wk5-android.png" width="800"></img></p>
+			
+			<br>
+
+            <h4>Week 6:</h4>
+            <b>Date:</b> 10/2/2020<br>
+            <b>Total hours:</b> 6<br>
+            <b>Description of design efforts:</b><br>
+            My efforts for this week were focused on developing the mobile Android application that will be used for our application. For this, I have used Android Studio and have tested the application on my Note 10 device along with a virtual Google Pixel 2 device to ensure functionality. The current functionality of the application allows the following process: (1) listing available nearby Bluetooth devices, (2) pairing the mobile device with the Bluetooth device, and (3) sending data in byte packages to the Bluetooth device. The data we send will be related to board logic and will be interpreted by the microcontroller. Over the weekend, I will add functionality to receive and interpret data from the Bluetooth device and begin development on the online server we will use to manage board logic. A screenshot of the application running on my Note 10 device is shown below.
+			
+			<br></br><p><img src="Team/progress/img/mobile-app-initial.jpg" width="300"></img></p>
+
+			
         </div>
 	
 		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
